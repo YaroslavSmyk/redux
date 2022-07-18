@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from 'redux';
+import { createStore} from 'redux';
 
 export const INCREMENT = 'COUNTER/INCREMENT';
 export const DECREMENT = 'COUNTER/DECREMENT';
