@@ -5,7 +5,7 @@ export const userReduser = (state = null, action) => {
     case SETUSER:
       return {
         ...state,
-        payload: action.payload.user,
+        user: action.payload.user,
       };
     case REMOVEUSER: {
       return null;

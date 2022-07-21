@@ -4,13 +4,13 @@ export const REMOVEPRODUCT = 'CART/REMOVEPRODUCT';
 export const addProduct = (prod) => {
   return {
     type: ADDPRODUCT,
-    payload: prod,
+    payload: {prod},
   };
 };
 
 export const removeProduct = (id) => {
   return {
     type: REMOVEPRODUCT,
-    payload: id,
+    payload: {id},
   };
 };

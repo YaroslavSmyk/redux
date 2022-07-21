@@ -4,7 +4,7 @@ export const REMOVEUSER = 'USER/REMOVEUSER';
 export const setUser = (user) => {
   return {
     type: SETUSER,
-    payload: user,
+    payload: {user},
   };
 };
 export const removeUser = () => {
