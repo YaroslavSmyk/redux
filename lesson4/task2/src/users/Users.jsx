@@ -50,4 +50,4 @@ const connector = connect(mapState, mapDispatch);
 
 const ConnectedUsers = connector(Users);
 
-export default Users;
+export default ConnectedUsers;
