@@ -66,13 +66,13 @@ const usersReducer = (state = initialState, action) => {
     case LEFT: {
       return {
         ...state,
-        currentPage: state.currentPage - 1,
+        currentPage: state.currentPage + 1,
       };
     }
     case RIGHT: {
       return {
         ...state,
-        currentPage: state.currentPage + 1,
+        currentPage: state.currentPage - 1,
       };
     }
 
