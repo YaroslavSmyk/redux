@@ -1,51 +1,39 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as userActions from './users.actions';
 import Pagination from './Pagination.jsx';
 import User from './User.jsx';
-import * as userActions from './users.actions';
-import { connect } from 'react-redux';
 
 class UsersList extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-
-    this.state = {
-      currentPage: 1,
-      itemsPerPage: 3,
-    };
-  }
-
   goPrev = () => {
-    this.setState({
-      currentPage: this.state.currentPage - 1,
-    });
+    this.props.left();
   };
 
   goNext = () => {
-    this.setState({
-      currentPage: this.state.currentPage + 1,
-    });
+    this.props.right();
   };
 
   render() {
-    const { users } = this.props;
-    const { currentPage, itemsPerPage } = this.state;
-    // console.log(users);
+    const { currentPage, usersList } = this.props.users;
+    const itemsPerPage = 3;
 
-    const startPage = (currentPage - 1) * itemsPerPage;
-    const countUsersOnPage = users.slice(startPage, startPage + itemsPerPage);
-// console.log(countUsersOnPage);
+    const startIndex = currentPage * itemsPerPage;
+    const usersToDisplay = usersList.slice(
+      startIndex,
+      startIndex + itemsPerPage
+    );
+
     return (
       <div>
         <Pagination
           goPrev={this.goPrev}
           goNext={this.goNext}
           currentPage={currentPage}
-          totalItems={users.length}
+          totalItems={usersList.length}
           itemsPerPage={itemsPerPage}
         />
         <ul className="users">
-          {countUsersOnPage.map((user) => (
+          {usersToDisplay.map((user) => (
             <User key={user.id} {...user} />
           ))}
         </ul>
@@ -54,4 +42,22 @@ class UsersList extends React.Component {
   }
 }
 
-export default UsersList;
+const mapState = (state) => {
+  return {
+    users: {
+      usersList: state.users.usersList,
+      currentPage: state.users.currentPage,
+    },
+  };
+};
+
+const mapDispatch = {
+  right: userActions.right,
+  left: userActions.left,
+};
+
+const connector = connect(mapState, mapDispatch);
+
+const connectedUsersList = connector(UsersList);
+
+export default connectedUsersList;
