@@ -6,11 +6,11 @@ import User from './User.jsx';
 
 class UsersList extends React.Component {
   goPrev = () => {
-    this.props.left();
+    this.props.goPrev();
   };
 
   goNext = () => {
-    this.props.right();
+    this.props.goNext();
   };
 
   render() {
@@ -52,8 +52,8 @@ const mapState = (state) => {
 };
 
 const mapDispatch = {
-  right: userActions.right,
-  left: userActions.left,
+  goNext: userActions.goNext,
+  goPrev: userActions.goPrev,
 };
 
 const connector = connect(mapState, mapDispatch);

@@ -1,4 +1,4 @@
-import { LEFT, RIGHT } from './users.actions.js';
+import { GO_NEXT, GO_PREV } from './users.actions.js';
 import { users } from '../users.js';
 
 export default function usersReducer(
@@ -6,13 +6,13 @@ export default function usersReducer(
   action
 ) {
   switch (action.type) {
-    case LEFT: {
+    case GO_NEXT: {
       return {
         ...state,
         currentPage: state.currentPage - 1,
       };
     }
-    case RIGHT: {
+    case GO_PREV: {
       return {
         ...state,
         currentPage: state.currentPage + 1,

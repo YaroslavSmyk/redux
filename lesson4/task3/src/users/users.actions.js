@@ -1,14 +1,14 @@
-export const LEFT = 'USERS/LEFT';
-export const RIGHT = 'USERS/RIGHT';
+export const GO_NEXT = 'USERS/GO_NEXT';
+export const GO_PREV = 'USERS/GO_PREV';
 
-export const left = () => {
+export const goPrev = () => {
   return {
-    type: LEFT,
+    type: GO_NEXT,
   };
 };
 
-export const right = () => {
+export const goNext = () => {
   return {
-    type: RIGHT,
+    type: GO_PREV,
   };
 };
