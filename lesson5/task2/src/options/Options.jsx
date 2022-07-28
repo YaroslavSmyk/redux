@@ -1,16 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+
+import PropTypes from "prop-types";
 
 const Options = ({ title, options, moveOption }) => {
+    console.log(options);
   return (
-    <div class="options">
-      <div class="options__title">{title}</div>
-      <ul class="options__list">
+    <div className="options">
+      <div className="options__title">{title}</div>
+      <ul className="options__list">
         {options.map((option) => (
-          <li key={options.id}>
+          <li key={option.id}>
             <button
               className="options__list-item"
-              onClick={() => moveOption(options.id)}
+              onClick={() => moveOption(option.id)}
             >
               {option.name}
             </button>
@@ -21,9 +23,9 @@ const Options = ({ title, options, moveOption }) => {
   );
 };
 
-Options.PropTypes = {
+Options.propTypes = {
   title: PropTypes.string.isRequired,
-  option: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   moveOption: PropTypes.func.isRequired,
 };
 

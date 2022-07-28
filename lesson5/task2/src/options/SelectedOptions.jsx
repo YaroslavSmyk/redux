@@ -5,7 +5,7 @@ import { toogleOption } from './options.actions';
 
 const mapState = (state) => {
   return {
-    option: selectedOptionsSelector(state),
+    options: selectedOptionsSelector(state),
   };
 };
 
