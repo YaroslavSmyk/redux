@@ -6,17 +6,17 @@ import User from './User.jsx';
 
 class UsersList extends React.Component {
   goPrev = () => {
-    this.props.goPrev();
+    this.props.prevPage();
   };
 
   goNext = () => {
-    this.props.goNext();
+    this.props.nextPage();
   };
 
   render() {
     const { currentPage, usersList } = this.props.users;
     const usersPerPage = 3;
-console.log(this.props.users);
+
     const start = currentPage * usersPerPage;
     const usersToDisplay = usersList.slice(start, start + usersPerPage);
 
@@ -39,7 +39,7 @@ console.log(this.props.users);
   }
 }
 
-const mapState = state => {
+const mapState = (state) => {
   return {
     users: {
       usersList: state.users.usersList,
@@ -49,8 +49,8 @@ const mapState = state => {
 };
 
 const mapDispatch = {
-  goPrev: userActions.goPrev,
-  goNext: userActions.goNext,
+  nextPage: userActions.nextPage,
+  prevPage: userActions.prevPage,
 };
 
 const connector = connect(mapState, mapDispatch);
