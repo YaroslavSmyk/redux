@@ -9,13 +9,13 @@ export default function usersReducer(
     case NEXT_PAGE: {
       return {
         ...state,
-        currentPage: state.currentPage + 1,
+        currentPage: state.currentPage - 1,
       };
     }
     case PREV_PAGE: {
       return {
         ...state,
-        currentPage: state.currentPage - 1,
+        currentPage: state.currentPage + 1,
       };
     }
 
