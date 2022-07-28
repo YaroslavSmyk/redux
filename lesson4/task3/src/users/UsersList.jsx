@@ -14,15 +14,11 @@ class UsersList extends React.Component {
   };
 
   render() {
-    // console.log(props);
     const { currentPage, usersList } = this.props.users;
-    const itemsPerPage = 3;
-console.log(currentPage);
-    const startIndex = currentPage * itemsPerPage;
-    const usersToDisplay = usersList.slice(
-      startIndex,
-      startIndex + itemsPerPage
-    );
+    const usersPerPage = 3;
+
+    const start = currentPage * usersPerPage;
+    const usersToDisplay = usersList.slice(start, start + usersPerPage);
 
     return (
       <div>
@@ -31,10 +27,10 @@ console.log(currentPage);
           goNext={this.goNext}
           currentPage={currentPage}
           totalItems={usersList.length}
-          itemsPerPage={itemsPerPage}
+          itemsPerPage={usersPerPage}
         />
         <ul className="users">
-          {usersToDisplay.map((user) => (
+          {usersToDisplay.map(user => (
             <User key={user.id} {...user} />
           ))}
         </ul>
@@ -43,10 +39,14 @@ console.log(currentPage);
   }
 }
 
-const mapState = (state) => ({
-  users: state.users.usersList,
-  currentPage: state.users.currentPage,
-});
+const mapState = state => {
+  return {
+    users: {
+      usersList: state.users.usersList,
+      currentPage: state.users.currentPage,
+    },
+  };
+};
 
 const mapDispatch = {
   goNext: userActions.goNext,
