@@ -14,9 +14,10 @@ class UsersList extends React.Component {
   };
 
   render() {
+    // console.log(props);
     const { currentPage, usersList } = this.props.users;
     const itemsPerPage = 3;
-
+console.log(currentPage);
     const startIndex = currentPage * itemsPerPage;
     const usersToDisplay = usersList.slice(
       startIndex,
@@ -42,14 +43,10 @@ class UsersList extends React.Component {
   }
 }
 
-const mapState = (state) => {
-  return {
-    users: {
-      usersList: state.users.usersList,
-      currentPage: state.users.currentPage,
-    },
-  };
-};
+const mapState = (state) => ({
+  users: state.users.usersList,
+  currentPage: state.users.currentPage,
+});
 
 const mapDispatch = {
   goNext: userActions.goNext,
