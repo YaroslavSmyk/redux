@@ -1,10 +1,7 @@
 import { NEXT_PAGE, PREV_PAGE } from './users.actions.js';
 import { users } from '../users.js';
 
-export default function usersReducer(
-  state = { usersList: users, currentPage: 0 },
-  action
-) {
+const usersReducer = (state = users, action) => {
   switch (action.type) {
     case NEXT_PAGE: {
       return {
@@ -22,4 +19,5 @@ export default function usersReducer(
     default:
       return state;
   }
-}
+};
+export default usersReducer;
