@@ -1,3 +1,7 @@
-export const isFetchingSelector = (state) => state.users.isFetching;
+export const isFetchingSelector = (state) => {
+  return state.users.isFetching;
+};
 
-export const userDataSelector = (state) => state.users.userData;
+export const userDataSelector = (state) => {
+  return state.users.userData;
+};

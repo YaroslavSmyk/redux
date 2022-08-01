@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import * as usersActions from './users.actions';
-// import PropTypes from 'prop-types';
+import * as userActions from './users.actions';
 
-class SearchField extends Component {
+class SearchField extends React.Component {
   state = {
     userName: '',
   };
+
   onChange = (event) => {
-    this.setState({ userName: event.target.value });
+    this.setState({
+      userName: event.target.value,
+    });
   };
 
   handleUserSearch = () => {
@@ -32,12 +34,8 @@ class SearchField extends Component {
   }
 }
 
-// SearchField.propTypes = {
-//   fetchUserData: PropTypes.func.isRequired,
-// };
-
 const mapDispatch = {
-  fetchUserData: usersActions.fetchUserData,
+  fetchUserData: userActions.fetchUserData,
 };
 
 export default connect(null, mapDispatch)(SearchField);
