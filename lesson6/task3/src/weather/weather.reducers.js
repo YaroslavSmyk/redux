@@ -1,7 +1,7 @@
 import { ADD_WEATHER_DATA } from './weather.actions';
 
 const initialState = {
-  watherData: [],
+  weatherData: [],
 };
 
 const weatherReducer = (state = initialState, action) => {
