@@ -1,10 +1,10 @@
-import { fetchWeatherData } from './weather.gateway'
+import { fetchWeatherData } from './weather.gateway';
 
-const WEATHER_DATA = 'WEATHER_DATA';
+const ADD_WEATHER_DATA = 'WEATHER_DATA';
 
 export const weatherDataReceived = (weatherData) => {
   return {
-    type: WEATHER_DATA,
+    type: ADD_WEATHER_DATA,
     payload: { weatherData },
   };
 };
