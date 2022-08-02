@@ -1,6 +1,6 @@
 import { fetchWeatherData } from './weather.gateway';
 
-const ADD_WEATHER_DATA = 'WEATHER_DATA';
+export const ADD_WEATHER_DATA = 'WEATHER_DATA';
 
 export const weatherDataReceived = (weatherData) => {
   return {

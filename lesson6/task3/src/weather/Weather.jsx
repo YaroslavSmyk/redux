@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { weatherDataSelector } from './weather.selectors';
 import * as usersActions from './weather.actions';
 
 const Weather = ({ weatherData, getWeatherData }) => {
+  useEffect(() => {
+    getWeatherData();
+  }, []);
   return (
     <main className="weather">
       <h1 className="weather__title">Weather data</h1>
