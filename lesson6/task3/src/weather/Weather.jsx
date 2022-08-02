@@ -28,8 +28,8 @@ const mapState = (state) => {
   };
 };
 
-const maoDispatch = {
+const mapDispatch = {
   getWeatherData: usersActions.getWeatherData,
 };
 
-export default connect(mapState, maoDispatch)(Weather);
+export default connect(mapState, mapDispatch)(Weather);

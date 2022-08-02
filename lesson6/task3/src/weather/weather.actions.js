@@ -5,7 +5,9 @@ export const ADD_WEATHER_DATA = 'WEATHER_DATA';
 export const weatherDataReceived = (weatherData) => {
   return {
     type: ADD_WEATHER_DATA,
-    payload: { weatherData },
+    payload: { 
+      weatherData 
+    },
   };
 };
 
